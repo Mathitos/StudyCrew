@@ -9,15 +9,15 @@ services:
     links:
       - mongo-parse-server:mongo
     environment:
-      - APP_ID=something_nice_and_secret
-      - MASTER_KEY=long-secret-awesome
-      - GCM_SENDER_ID=gcm_id
-      - GCM_API_KEY=gcm_key
-      - PFX_PATH_DEV=path_to_certificate_p12
-      - PFX_PASS_DEV=passphrase_certificate
-      - PFX_PATH_PROD=path_to_certificate_p12
-      - PFX_PATH_PROD=passphrase_certificate
-      - APP_BUNDLE_ID=bundle_id
+      - APP_ID=9037218hun3jk21m
+      - MASTER_KEY=0uf8nds89f0yds9yf78d0sy70say7da
+      #- GCM_SENDER_ID=gcm_id
+      #- GCM_API_KEY=gcm_key
+      #- PFX_PATH_DEV=path_to_certificate_p12
+      #- PFX_PASS_DEV=passphrase_certificate
+      #- PFX_PATH_PROD=path_to_certificate_p12
+      #- PFX_PATH_PROD=passphrase_certificate
+      #- APP_BUNDLE_ID=bundle_id
       - IS_PRODUCTION=false
     ports:
       - 1337:1337

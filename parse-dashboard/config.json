@@ -2,9 +2,9 @@
   "apps": [
     {
       "serverURL": "http://localhost:1337/parse",
-      "appId": "something_nice_and_secret",
-      "masterKey": "long-secret-awesome",
-      "appName": "MyApp"
+      "appId": "9037218hun3jk21m",
+      "masterKey": "0uf8nds89f0yds9yf78d0sy70say7da",
+      "appName": "StudyCrew"
     }
   ],
   "users": [

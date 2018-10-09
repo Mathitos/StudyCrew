@@ -12,6 +12,7 @@ const {
   PFX_PATH_PROD,
   PFX_PASS_PROD,
   APP_BUNDLE_ID,
+  CLOUD_CODE_HOME,
   IS_PRODUCTION
 } = process.env;
 
@@ -19,12 +20,13 @@ const api = new ParseServer({
   databaseURI: 'mongodb://mongo-parse-server/', // Connection string for your MongoDB database
   appId: APP_ID,
   masterKey: MASTER_KEY,
-  fileKey: 'optionalFileKey',
+  // fileKey: 'optionalFileKey',
   serverURL: 'http://localhost:1337/parse', // Don't forget to change to https if needed
-  push: {
-    android: {
-      senderId: GCM_SENDER_ID,
-      apiKey: GCM_API_KEY
+  cloud: CLOUD_CODE_HOME,
+/*  push: {
+    	android: {
+        senderId: GCM_SENDER_ID,
+        apiKey: GCM_API_KEY
     },
     ios: [
       {
@@ -39,7 +41,7 @@ const api = new ParseServer({
         production: true // Prod
       }
     ]
-  }
+  }*/
 });
 
 // Serve the Parse API on the /parse URL prefix
