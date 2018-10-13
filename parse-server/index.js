@@ -1,6 +1,6 @@
-const express = require('express');
-const ParseServer = require('parse-server').ParseServer;
-const app = express();
+const express = require('express')
+const ParseServer = require('parse-server').ParseServer
+const app = express()
 
 const {
   APP_ID,
@@ -22,7 +22,7 @@ const api = new ParseServer({
   masterKey: MASTER_KEY,
   // fileKey: 'optionalFileKey',
   serverURL: 'http://localhost:1337/parse', // Don't forget to change to https if needed
-  cloud: CLOUD_CODE_HOME,
+  cloud: `${CLOUD_CODE_HOME}/main.js`,
 /*  push: {
     	android: {
         senderId: GCM_SENDER_ID,

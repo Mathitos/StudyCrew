@@ -20,8 +20,7 @@ exports.join = (request, response) => {
 		return Promise.resolve(group)
 	})
 	.then( (group) => {
-		let Participant = new Parse.Object.extends('Participant')
-		let participant = new Participant()
+		let participant = new Parse.Object('Participant')
 	
 		let userACL = new Parse.ACL()
 		userACL.setReadAccess(user.id, true)
@@ -47,14 +46,14 @@ exports.leave = (request, response) => {
 	let { groupId } = request.params
 	if (!groupId) { throw Errors.GroupIdRequired }
 	
-	let Group = new Parse.Object.extends('Group')
+	let Group = new Parse.Object.extend('Group')
 	const group = Group.createWithoutData(groupId)
 	
 	let participantQuery = new Parse.Query('Participant')
 	participantQuery
 	.equalTo('user', user)
 	.equalTo('group', group)
-	.find(Options.MasterKey)
+	.first(Options.MasterKey)
 	.then( (participant) => {
 		if (!participant) { throw Errors.ParticipantNotFound }
 		return Promise.resolve(participant)
@@ -63,7 +62,9 @@ exports.leave = (request, response) => {
 		const obj = {
 			leaveAt: new Date()
 		}
-
+		
+		console.debug(participant)
+		
 		return participant.save(obj, Options.MasterKey)
 	})
 	.then(response.success)

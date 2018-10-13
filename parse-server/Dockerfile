@@ -14,6 +14,7 @@ ADD ./package.json ${PARSE_HOME}
 ADD ./index.js ${PARSE_HOME}
 
 ENV CLOUD_CODE_HOME ${PARSE_HOME}/cloud
+
 RUN mkdir -p ${CLOUD_CODE_HOME}
 ADD cloud/*.js ${CLOUD_CODE_HOME}/
 
@@ -24,4 +25,4 @@ RUN npm install
 EXPOSE ${PORT}
 VOLUME ${CLOUD_CODE_HOME}
 
-CMD [ "npm", "start" ]
+CMD npm restart
